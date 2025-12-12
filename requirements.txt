@@ -1,0 +1,11 @@
+# Requirements para o servidor Python
+# Este projeto usa apenas bibliotecas padrão do Python
+# Não são necessárias dependências externas
+
+# Se no futuro você adicionar bibliotecas externas, adicione aqui
+# Exemplo:
+# flask==2.3.0
+# requests==2.31.0
+
+# Para o Render, este arquivo pode estar vazio ou conter apenas comentários
+# O Render detectará automaticamente que é um projeto Python

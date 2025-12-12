@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investimentos - FinançasPro</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">💼</span>
+                    <h1>FinançasPro</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="investimentos.html" class="active">Investimentos</a></li>
+                        <li><a href="calculadoras.html">Calculadoras</a></li>
+                        <li><a href="sobre.html">Sobre</a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons">
+                    <a href="login.html" class="btn btn-outline">Entrar</a>
+                    <a href="index.html#registration" class="btn btn-primary">Cadastrar</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Investimentos -->
+    <section class="hero-investimentos">
+        <div class="container">
+            <div class="hero-invest-content">
+                <div class="hero-text">
+                    <h1>Invista com Inteligência Artificial</h1>
+                    <p class="hero-subtitle">Acesse investimentos exclusivos com retornos de até <span class="highlight">24.5% ao ano</span></p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-value" id="total-invested">R$ 2.847.392.184</div>
+                            <div class="stat-label">Total Investido pelos Clientes</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="active-users">+12.847</div>
+                            <div class="stat-label">Investidores Ativos</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="avg-return">+18.3%</div>
+                            <div class="stat-label">Retorno Médio Anual</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-chart">
+                    <canvas id="heroChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Overview -->
+    <section class="portfolio-section">
+        <div class="container">
+            <h2 class="section-title-large">Seu Portfólio em Tempo Real</h2>
+            <div class="portfolio-grid" id="portfolio-grid">
+                <!-- React components will render here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Investment Options -->
+    <section class="investment-options">
+        <div class="container">
+            <h2 class="section-title-large">Oportunidades de Investimento</h2>
+            <div class="investment-tabs">
+                <button class="tab-btn active" data-tab="acoes">Ações</button>
+                <button class="tab-btn" data-tab="fiis">FIIs</button>
+                <button class="tab-btn" data-tab="cripto">Criptomoedas</button>
+                <button class="tab-btn" data-tab="renda-fixa">Renda Fixa</button>
+            </div>
+            <div class="investments-container" id="investments-container">
+                <!-- React components will render here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Trends -->
+    <section class="market-trends">
+        <div class="container">
+            <h2 class="section-title-large">Tendências do Mercado</h2>
+            <div class="trends-grid">
+                <div class="trend-card">
+                    <canvas id="trendChart1"></canvas>
+                </div>
+                <div class="trend-card">
+                    <canvas id="trendChart2"></canvas>
+                </div>
+                <div class="trend-card">
+                    <canvas id="trendChart3"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Market Data -->
+    <section class="live-market">
+        <div class="container">
+            <h2 class="section-title-large">Dados do Mercado em Tempo Real</h2>
+            <div class="market-ticker" id="market-ticker">
+                <!-- React component will render here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-invest">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Comece a Investir Agora</h2>
+                <p>Junte-se a milhares de investidores que já transformaram suas finanças</p>
+                <a href="index.html#registration" class="btn btn-primary btn-large">Criar Conta Grátis</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>FinançasPro</h3>
+                    <p>Sua plataforma completa para investimentos inteligentes e planejamento financeiro.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Recursos</h3>
+                    <ul>
+                        <li><a href="investimentos.html">Investimentos</a></li>
+                        <li><a href="calculadoras.html">Calculadoras</a></li>
+                        <li><a href="#">Análises</a></li>
+                        <li><a href="#">Relatórios</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Suporte</h3>
+                    <ul>
+                        <li><a href="#">Central de Ajuda</a></li>
+                        <li><a href="#">Contato</a></li>
+                        <li><a href="#">Tutoriais</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Cookies</a></li>
+                        <li><a href="#">Segurança</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 FinançasPro. Todos os direitos reservados. Este site é para fins educacionais de segurança cibernética.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script type="text/babel" src="js/investimentos.js"></script>
+</body>
+</html>
+

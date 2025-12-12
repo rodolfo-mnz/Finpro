@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre - FinançasPro</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">💼</span>
+                    <h1>FinançasPro</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="investimentos.html">Investimentos</a></li>
+                        <li><a href="calculadoras.html">Calculadoras</a></li>
+                        <li><a href="sobre.html" class="active">Sobre</a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons">
+                    <a href="login.html" class="btn btn-outline">Entrar</a>
+                    <a href="index.html#registration" class="btn btn-primary">Cadastrar</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Sobre -->
+    <section class="hero-sobre">
+        <div class="container">
+            <div class="hero-sobre-content">
+                <div class="hero-text-sobre">
+                    <h1>Sobre a FinançasPro</h1>
+                    <p class="hero-subtitle-sobre">Referência em tecnologia financeira, segurança e inovação para investidores de todos os perfis.</p>
+                    <div class="hero-stats-sobre">
+                        <div class="stat-item-sobre">
+                            <div class="stat-value-sobre">+12.847</div>
+                            <div class="stat-label-sobre">Clientes Ativos</div>
+                        </div>
+                        <div class="stat-item-sobre">
+                            <div class="stat-value-sobre">R$ 2.8B</div>
+                            <div class="stat-label-sobre">Sob Gestão</div>
+                        </div>
+                        <div class="stat-item-sobre">
+                            <div class="stat-value-sobre">98.5%</div>
+                            <div class="stat-label-sobre">Satisfação</div>
+                        </div>
+                        <div class="stat-item-sobre">
+                            <div class="stat-value-sobre">24/7</div>
+                            <div class="stat-label-sobre">Suporte</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-chart-sobre">
+                    <canvas id="growthChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Values -->
+    <section class="mission-section">
+        <div class="container">
+            <div class="mission-grid" id="mission-grid">
+                <!-- React components will render here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose-section">
+        <div class="container">
+            <h2 class="section-title-large">Por que Escolher a FinançasPro?</h2>
+            <div class="features-grid-sobre" id="features-sobre">
+                <!-- React components will render here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="timeline-section">
+        <div class="container">
+            <h2 class="section-title-large">Nossa História</h2>
+            <div class="timeline-container" id="timeline-container">
+                <!-- React component will render here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Stats -->
+    <section class="team-stats-section">
+        <div class="container">
+            <h2 class="section-title-large">Nossa Equipe</h2>
+            <div class="team-stats-grid" id="team-stats">
+                <!-- React components will render here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Security & Compliance -->
+    <section class="security-section">
+        <div class="container">
+            <h2 class="section-title-large">Compromisso com Segurança e Inovação</h2>
+            <div class="security-content">
+                <div class="security-text">
+                    <p>A FinançasPro utiliza criptografia de ponta, autenticação de dois fatores e está em conformidade com as normas do Banco Central. Nossa infraestrutura é auditada regularmente para garantir máxima proteção dos seus dados e investimentos.</p>
+                    <div class="security-badges-sobre" id="security-badges">
+                        <!-- React components will render here -->
+                    </div>
+                </div>
+                <div class="security-chart">
+                    <canvas id="securityChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-sobre">
+        <div class="container">
+            <div class="cta-content-sobre">
+                <h2>Junte-se à Revolução Financeira</h2>
+                <p>Transforme sua relação com o dinheiro e alcance seus objetivos financeiros</p>
+                <a href="index.html#registration" class="btn btn-primary btn-large">Começar Agora</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>FinançasPro</h3>
+                    <p>Sua plataforma completa para investimentos inteligentes e planejamento financeiro.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Recursos</h3>
+                    <ul>
+                        <li><a href="investimentos.html">Investimentos</a></li>
+                        <li><a href="calculadoras.html">Calculadoras</a></li>
+                        <li><a href="#">Análises</a></li>
+                        <li><a href="#">Relatórios</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Suporte</h3>
+                    <ul>
+                        <li><a href="#">Central de Ajuda</a></li>
+                        <li><a href="#">Contato</a></li>
+                        <li><a href="#">Tutoriais</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Cookies</a></li>
+                        <li><a href="#">Segurança</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 FinançasPro. Todos os direitos reservados. Este site é para fins educacionais de segurança cibernética.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script type="text/babel" src="js/sobre.js"></script>
+</body>
+</html>

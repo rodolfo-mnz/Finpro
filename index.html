@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinançasPro - Sua Plataforma de Investimentos Inteligente</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">💼</span>
+                    <h1>FinançasPro</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#features">Recursos</a></li>
+                        <li><a href="investimentos.html">Investimentos</a></li>
+                        <li><a href="calculadoras.html">Calculadoras</a></li>
+                        <li><a href="sobre.html">Sobre</a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons">
+                    <a href="login.html" class="btn btn-outline">Entrar</a>
+                    <button class="btn btn-primary" id="register-btn">Cadastrar</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container home-section-hero">
+            <div class="marketing-badge" style="margin-bottom: 1rem; display: inline-block;">🔥 OFERTA EXCLUSIVA - RETORNO DE ATÉ 24.5% AO ANO</div>
+            <h2>Invista com Inteligência Artificial e Alcance a Liberdade Financeira</h2>
+            <p style="font-size: 1.3rem;">A <strong>FinançasPro</strong> é a plataforma mais completa do Brasil para investimentos. Conectada diretamente ao seu banco, oferecemos análises avançadas com IA, calculadoras inteligentes e acesso exclusivo a investimentos de ponta com retornos superiores.</p>
+            <div class="hero-stats" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin: 2rem 0; max-width: 800px; margin-left: auto; margin-right: auto;">
+                <div class="stat-card" style="text-align: center; padding: 1.5rem; background: rgba(255, 222, 89, 0.1); border-radius: 8px; border: 2px solid var(--accent); transition: all 0.3s;">
+                    <div class="stat-number" style="font-size: 2rem; font-weight: bold; color: var(--accent); margin-bottom: 0.5rem;">+R$ 2.8B</div>
+                    <div style="font-size: 0.9rem; color: var(--gray);">Investidos pelos Clientes</div>
+                </div>
+                <div class="stat-card" style="text-align: center; padding: 1.5rem; background: rgba(255, 222, 89, 0.1); border-radius: 8px; border: 2px solid var(--accent); transition: all 0.3s;">
+                    <div class="stat-number" style="font-size: 2rem; font-weight: bold; color: var(--accent); margin-bottom: 0.5rem;">+12.847</div>
+                    <div style="font-size: 0.9rem; color: var(--gray);">Investidores Ativos</div>
+                </div>
+                <div class="stat-card" style="text-align: center; padding: 1.5rem; background: rgba(255, 222, 89, 0.1); border-radius: 8px; border: 2px solid var(--accent); transition: all 0.3s;">
+                    <div class="stat-number" style="font-size: 2rem; font-weight: bold; color: var(--accent); margin-bottom: 0.5rem;">+18.3%</div>
+                    <div style="font-size: 0.9rem; color: var(--gray);">Retorno Médio Anual</div>
+                </div>
+            </div>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" id="hero-register-btn" style="font-size: 1.2rem; padding: 1rem 2.5rem;">Comece Agora - Grátis</button>
+                <a href="investimentos.html" class="btn btn-outline" style="font-size: 1.2rem; padding: 1rem 2.5rem; text-decoration: none;">Ver Investimentos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Recursos Exclusivos</h2>
+                <p>Descubra como a FinançasPro pode transformar sua relação com o dinheiro</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>Análise de Investimentos</h3>
+                    <p>Receba recomendações personalizadas baseadas no seu perfil e objetivos financeiros.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔗</div>
+                    <h3>Integração Bancária</h3>
+                    <p>Conecte suas contas bancárias para uma visão completa da sua situação financeira.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧮</div>
+                    <h3>Calculadoras Financeiras</h3>
+                    <p>Calcule juros, projeções de investimento e simule diferentes cenários financeiros.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Segurança Avançada</h3>
+                    <p>Seus dados protegidos com criptografia de ponta a ponta e autenticação de dois fatores.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Relatórios Detalhados</h3>
+                    <p>Acompanhe seu patrimônio e receba insights sobre seus hábitos de gastos e investimentos.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Metas Personalizadas</h3>
+                    <p>Defina objetivos financeiros e acompanhe seu progresso com alertas e recomendações.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Form -->
+    <section class="registration" id="registration">
+        <div class="container">
+            <div class="section-title">
+                <h2>Junte-se a Milhares de Investidores</h2>
+                <p>Cadastre-se gratuitamente e comece a transformar sua vida financeira hoje mesmo</p>
+            </div>
+            <div class="form-container">
+                <h3 class="form-title">Crie sua Conta</h3>
+                <form id="registration-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nome">Nome Completo</label>
+                            <input type="text" id="nome" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cpf">CPF</label>
+                            <input type="text" id="cpf" class="form-control" placeholder="000.000.000-00" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefone">Telefone</label>
+                        <input type="tel" id="telefone" class="form-control" placeholder="(00) 00000-0000" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="banco">Banco Principal</label>
+                        <select id="banco" class="form-control" required>
+                            <option value="" selected disabled>Selecione seu banco</option>
+                            <option value="Banco do Brasil">Banco do Brasil</option>
+                            <option value="Bradesco">Bradesco</option>
+                            <option value="Itaú">Itaú</option>
+                            <option value="Santander">Santander</option>
+                            <option value="Caixa Econômica">Caixa Econômica Federal</option>
+                            <option value="Nubank">Nubank</option>
+                            <option value="Inter">Inter</option>
+                            <option value="Outro">Outro</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="agencia">Agência</label>
+                            <input type="text" id="agencia" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="conta">Conta Corrente</label>
+                            <input type="text" id="conta" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="senha">Senha</label>
+                        <div class="password-input-wrapper">
+                            <input type="password" id="senha" class="form-control" required>
+                            <button type="button" class="toggle-password" aria-label="Mostrar senha" data-target="senha">
+                                <svg class="password-icon password-icon-visible" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="9" y1="9" x2="15" y2="15"></line>
+                                    <line x1="15" y1="9" x2="9" y2="15"></line>
+                                </svg>
+                                <svg class="password-icon password-icon-hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmar-senha">Confirmar Senha</label>
+                        <div class="password-input-wrapper">
+                            <input type="password" id="confirmar-senha" class="form-control" required>
+                            <button type="button" class="toggle-password" aria-label="Mostrar senha" data-target="confirmar-senha">
+                                <svg class="password-icon password-icon-visible" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="9" y1="9" x2="15" y2="15"></line>
+                                    <line x1="15" y1="9" x2="9" y2="15"></line>
+                                </svg>
+                                <svg class="password-icon password-icon-hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Criar Conta Gratuita</button>
+                </form>
+                <div class="form-footer">
+                    <p>Ao criar uma conta, você concorda com nossos <a href="#">Termos de Serviço</a> e <a href="#">Política de Privacidade</a>.</p>
+                </div>
+                
+                <div class="success-message" id="success-message">
+                    <div class="success-icon">✅</div>
+                    <h3>Cadastro Realizado com Sucesso!</h3>
+                    <p>Em breve você receberá um e-mail com as instruções para ativar sua conta e começar a usar a FinançasPro.</p>
+                </div>
+            </div>
+            
+            <div class="security-badges">
+                <div class="badge">
+                    <span>🔒</span> Dados Protegidos
+                </div>
+                <div class="badge">
+                    <span>🛡️</span> SSL 256-bit
+                </div>
+                <div class="badge">
+                    <span>✅</span> Regulado pelo BACEN
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>FinançasPro</h3>
+                    <p>Sua plataforma completa para investimentos inteligentes e planejamento financeiro.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Recursos</h3>
+                    <ul>
+                        <li><a href="#">Investimentos</a></li>
+                        <li><a href="#">Calculadoras</a></li>
+                        <li><a href="#">Análises</a></li>
+                        <li><a href="#">Relatórios</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Suporte</h3>
+                    <ul>
+                        <li><a href="#">Central de Ajuda</a></li>
+                        <li><a href="#">Contato</a></li>
+                        <li><a href="#">Tutoriais</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Cookies</a></li>
+                        <li><a href="#">Segurança</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 FinançasPro. Todos os direitos reservados. Este site é para fins educacionais de segurança cibernética.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/formatters.js"></script>
+    <script src="js/form-handler.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planos e Serviços - FinançasPro</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">💼</span>
+                    <h1>FinançasPro</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="investimentos.html">Investimentos</a></li>
+                        <li><a href="calculadoras.html">Calculadoras</a></li>
+                        <li><a href="sobre.html">Sobre</a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons">
+                    <!-- Será atualizado pelo authManager -->
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Planos Section -->
+    <section class="features" style="padding: 100px 0;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Escolha seu Plano</h2>
+                <p>Selecione o plano ideal para suas necessidades de investimento</p>
+            </div>
+            
+            <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px;">
+                <!-- Plano Básico -->
+                <div class="feature-card plano-card" data-plano="basico" data-valor="29.90">
+                    <div class="plano-badge" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 10px; border-radius: 8px 8px 0 0; margin: -20px -20px 20px -20px;">
+                        <h3 style="margin: 0; font-size: 24px;">Plano Básico</h3>
+                    </div>
+                    <div class="plano-preco" style="font-size: 36px; font-weight: bold; color: #ffde59; margin: 20px 0;">
+                        R$ 29,90<span style="font-size: 18px; color: var(--gray);">/mês</span>
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 20px 0;">
+                        <li style="padding: 10px 0; border-bottom: 1px solid var(--border);">✓ Análise básica de investimentos</li>
+                        <li style="padding: 10px 0; border-bottom: 1px solid var(--border);">✓ Calculadoras financeiras</li>
+                        <li style="padding: 10px 0; border-bottom: 1px solid var(--border);">✓ Relatórios mensais</li>
+                        <li style="padding: 10px 0; border-bottom: 1px solid var(--border);">✓ Suporte por email</li>
+                        <li style="padding: 10px 0;">✓ Integração com 1 banco</li>
+                    </ul>
+                    <button class="btn btn-primary btn-block selecionar-plano" style="margin-top: 20px;">Selecionar Plano</button>
+                </div>
+
+                <!-- Plano Premium -->
+                <div class="feature-card plano-card" data-plano="premium" data-valor="79.90" style="border: 3px solid var(--accent); transform: scale(1.05);">
+                    <div class="plano-badge" style="background: linear-gradient(135deg, var(--accent) 0%, #00a876 100%); color: white; padding: 10px; border-radius: 8px 8px 0 0; margin: -20px -20px 20px -20px; position: relative;">
+                        <span style="position: absolute; top: -10px; right: 20px; background: #ff6b6b; color: white; padding: 5px 15px; border-radius: 20px; font-size: 12px; font-weight: bold;">MAIS POPULAR</span>
+                        <h3 style="margin: 0; font-size: 24px;">Plano Premium</h3>
+                    </div>
+                    <div class="plano-preco" style="font-size: 36px; font-weight: bold; color:#ffde59; margin: 20px 0;">
+                        R$ 79,90<span style="font-size: 18px; color: var(--gray);">/mês</span>
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 20px 0;">
+                        <li style="padding: 10px 0; border-bottom: 1px solid var(--border);">✓ Análise avançada de investimentos</li>
+                        <li style="padding: 10px 0; border-bottom: 1px solid var(--border);">✓ Calculadoras e simuladores</li>
+                        <li style="padding: 10px 0; border-bottom: 1px solid var(--border);">✓ Relatórios semanais detalhados</li>
+                        <li style="padding: 10px 0; border-bottom: 1px solid var(--border);">✓ Suporte prioritário 24/7</li>
+                        <li style="padding: 10px 0; border-bottom: 1px solid var(--border);">✓ Integração com até 3 bancos</li>
+                        <li style="padding: 10px 0; border-bottom: 1px solid var(--border);">✓ Alertas de oportunidades</li>
+                        <li style="padding: 10px 0;">✓ Consultoria mensal</li>
+                    </ul>
+                    <button class="btn btn-primary btn-block selecionar-plano" style="margin-top: 20px; background: var(--accent);">Selecionar Plano</button>
+                </div>
+
+                <!-- Plano VIP -->
+                <div class="feature-card plano-card" data-plano="vip" data-valor="199.90">
+                    <div class="plano-badge" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 10px; border-radius: 8px 8px 0 0; margin: -20px -20px 20px -20px;">
+                        <h3 style="margin: 0; font-size: 24px;">Plano VIP</h3>
+                    </div>
+                    <div class="plano-preco" style="font-size: 36px; font-weight: bold; color: #ffde59; margin: 20px 0;">
+                        R$ 199,90<span style="font-size: 18px; color: var(--gray);">/mês</span>
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 20px 0;">
+                        <li style="padding: 10px 0; border-bottom: 1px solid var(--border);">✓ Análise premium com IA</li>
+                        <li style="padding: 10px 0; border-bottom: 1px solid var(--border);">✓ Todas as calculadoras avançadas</li>
+                        <li style="padding: 10px 0; border-bottom: 1px solid var(--border);">✓ Relatórios diários personalizados</li>
+                        <li style="padding: 10px 0; border-bottom: 1px solid var(--border);">✓ Suporte dedicado exclusivo</li>
+                        <li style="padding: 10px 0; border-bottom: 1px solid var(--border);">✓ Integração ilimitada de bancos</li>
+                        <li style="padding: 10px 0; border-bottom: 1px solid var(--border);">✓ Alertas em tempo real</li>
+                        <li style="padding: 10px 0; border-bottom: 1px solid var(--border);">✓ Consultoria semanal</li>
+                        <li style="padding: 10px 0;">✓ Acesso a investimentos exclusivos</li>
+                    </ul>
+                    <button class="btn btn-primary btn-block selecionar-plano" style="margin-top: 20px;">Selecionar Plano</button>
+                </div>
+            </div>
+
+            <div style="margin-top: 50px; text-align: center; padding: 30px; background: var(--light); border-radius: 8px;">
+                <h3 style="margin-bottom: 15px;">💳 Pagamento 100% Seguro</h3>
+                <p style="color: var(--gray);">Todas as transações são processadas com criptografia SSL de 256 bits. Seus dados estão protegidos.</p>
+                <div style="margin-top: 20px;">
+                    <span style="margin: 0 10px;">🔒 SSL</span>
+                    <span style="margin: 0 10px;">🛡️ PCI DSS</span>
+                    <span style="margin: 0 10px;">✅ Verificado</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>FinançasPro</h3>
+                    <p>Sua plataforma completa para investimentos inteligentes e planejamento financeiro.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Recursos</h3>
+                    <ul>
+                        <li><a href="#">Investimentos</a></li>
+                        <li><a href="#">Calculadoras</a></li>
+                        <li><a href="#">Análises</a></li>
+                        <li><a href="#">Relatórios</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Suporte</h3>
+                    <ul>
+                        <li><a href="#">Central de Ajuda</a></li>
+                        <li><a href="#">Contato</a></li>
+                        <li><a href="#">Tutoriais</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Cookies</a></li>
+                        <li><a href="#">Segurança</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 FinançasPro. Todos os direitos reservados. Este site é para fins educacionais de segurança cibernética.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/planos.js"></script>
+</body>
+</html>
+

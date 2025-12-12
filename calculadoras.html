@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadoras Financeiras - FinançasPro</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">💼</span>
+                    <h1>FinançasPro</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="investimentos.html">Investimentos</a></li>
+                        <li><a href="calculadoras.html" class="active">Calculadoras</a></li>
+                        <li><a href="sobre.html">Sobre</a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons">
+                    <a href="login.html" class="btn btn-outline">Entrar</a>
+                    <a href="index.html#registration" class="btn btn-primary">Cadastrar</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Calculadoras -->
+    <section class="hero-calculadoras">
+        <div class="container section-title-hero-calculadoras">
+            <h1>Calculadoras Financeiras Inteligentes</h1>
+            <p>Simule, calcule e planeje seus investimentos com precisão. Ferramentas profissionais para decisões financeiras inteligentes.</p>
+        </div>
+    </section>
+
+    <!-- Calculator Tabs -->
+    <section class="calculators-section">
+        <div class="container">
+            <div class="calculator-tabs">
+                <button class="calc-tab-btn active" data-calc="juros-compostos">Juros Compostos</button>
+                <button class="calc-tab-btn" data-calc="investimento">Investimento</button>
+                <button class="calc-tab-btn" data-calc="emprestimo">Empréstimo</button>
+                <button class="calc-tab-btn" data-calc="financiamento">Financiamento</button>
+                <button class="calc-tab-btn" data-calc="aposentadoria">Aposentadoria</button>
+                <button class="calc-tab-btn" data-calc="cdb">CDB</button>
+            </div>
+
+            <div id="calculators-container">
+                <!-- React components will render here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>FinançasPro</h3>
+                    <p>Sua plataforma completa para investimentos inteligentes e planejamento financeiro.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Recursos</h3>
+                    <ul>
+                        <li><a href="investimentos.html">Investimentos</a></li>
+                        <li><a href="calculadoras.html">Calculadoras</a></li>
+                        <li><a href="#">Análises</a></li>
+                        <li><a href="#">Relatórios</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Suporte</h3>
+                    <ul>
+                        <li><a href="#">Central de Ajuda</a></li>
+                        <li><a href="#">Contato</a></li>
+                        <li><a href="#">Tutoriais</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Cookies</a></li>
+                        <li><a href="#">Segurança</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 FinançasPro. Todos os direitos reservados. Este site é para fins educacionais de segurança cibernética.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script type="text/babel" src="js/calculadoras.js"></script>
+</body>
+</html>
+

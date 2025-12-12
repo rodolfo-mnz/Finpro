@@ -1,0 +1,563 @@
+/* Sobre - Responsivo */
+@media (max-width: 900px) {
+    .about-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .about-col {
+        padding: 2rem 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .about {
+        padding: 2rem 0;
+    }
+    .about-col {
+        min-width: 100%;
+        padding: 1.2rem 0.5rem;
+    }
+    .about-security {
+        padding: 1.2rem 0.5rem;
+    }
+    .about-badges {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+/* Tablets */
+@media (max-width: 768px) {
+    body {
+        padding-top: 60px;
+        background: #000;
+        color: #ffde59;
+    }
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    nav ul {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .hero h2 {
+        font-size: 2rem;
+        color: #ffde59;
+    }
+    .hero p {
+        font-size: 1.1rem;
+        color: #ffde59;
+    }
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    .feature-card {
+        background: #000;
+        color: #ffde59;
+        border: 2px solid #ffde59;
+    }
+    .form-container {
+        background: #000;
+        color: #ffde59;
+        border: 2px solid #ffde59;
+    }
+    .security-badges {
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .footer-column h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+        background: #ffde59;
+    }
+    
+    /* Header específico para pagamento */
+    .auth-buttons > div {
+        flex-direction: column !important;
+        gap: 5px !important;
+        text-align: center !important;
+    }
+    
+    .auth-buttons span:not(:last-child) {
+        display: none !important;
+    }
+    
+    /* Ajustes específicos para página de pagamento */
+    .payment-section .section-title {
+        padding: 0 1rem;
+    }
+    
+    .payment-section .container {
+        padding: 0 1rem;
+    }
+
+    .payment-badges {
+        margin-top: 120px !important;
+    }
+    
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+    }
+    .logo h1 {
+        font-size: 1.3rem;
+        color: #ffde59;
+    }
+    .hero {
+        padding: 2rem 0;
+        background: #06090f;
+        color: #ffde59;
+    }
+    .hero h2 {
+        font-size: 1.8rem;
+        color: #ffde59;
+    }
+    .features, .registration {
+        padding: 2rem 0;
+        background: #06090f;
+        color: #ffde59;
+    }
+    .section-title h2 {
+        font-size: 1.6rem;
+        color: #ffde59;
+    }
+    .form-container {
+        padding: 1.5rem;
+        background: #000;
+        color: #ffde59;
+        border: 2px solid #ffde59;
+    }
+    .feature-card {
+        padding: 1.5rem;
+        background: #000;
+        color: #ffde59;
+        border: 2px solid #ffde59;
+    }
+    .btn {
+        padding: 0.4rem 1.2rem;
+        font-size: 0.8rem;
+        background: #ffde59;
+        color: #000;
+        border: 2px solid #ffde59;
+    }
+}
+
+/* Large screens */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1400px;
+    }
+    
+    .hero h2 {
+        font-size: 3rem;
+    }
+}
+
+/* Responsive for Investimentos and Calculadoras */
+@media (max-width: 968px) {
+    .hero-invest-content {
+        grid-template-columns: 1fr !important;
+        gap: 2rem;
+    }
+    
+    .hero-stats {
+        grid-template-columns: 1fr !important;
+        margin-top: 110px !important;
+    }
+
+    .section-title-hero-calculadoras {
+        margin-top: 110px !important;
+    }
+
+    .home-section-hero {
+        margin-top: 220px !important;
+    }
+    
+    .portfolio-grid,
+    .investments-grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .trends-grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .ticker-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .ticker-item {
+        min-width: 100%;
+    }
+    
+    .calculator-tabs {
+        flex-direction: column;
+    }
+    
+    .calc-tab-btn {
+        width: 100%;
+    }
+    
+    .calc-inputs {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-investimentos {
+        padding: 80px 0 40px !important;
+    }
+    
+    .hero-text h1 {
+        font-size: 2rem !important;
+    }
+    
+    .section-title-large {
+        font-size: 1.8rem !important;
+    }
+    
+    .portfolio-card,
+    .investment-card {
+        padding: 1.5rem !important;
+    }
+    
+    .calculator-card {
+        padding: 2rem 1.5rem !important;
+    }
+    
+    .hero-chart,
+    .portfolio-chart,
+    .trend-card,
+    .calc-chart {
+        height: 250px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-investimentos {
+        padding: 60px 0 30px !important;
+    }
+    
+    .hero-text h1 {
+        font-size: 1.5rem !important;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem !important;
+    }
+    
+    .stat-value {
+        font-size: 1.3rem !important;
+    }
+    
+    .portfolio-value {
+        font-size: 1.5rem !important;
+    }
+    
+    .hero-chart,
+    .portfolio-chart,
+    .trend-card,
+    .calc-chart {
+        height: 200px !important;
+        padding: 0.5rem !important;
+    }
+    
+    .investment-tabs,
+    .calculator-tabs {
+        gap: 0.5rem;
+    }
+    
+    .tab-btn,
+    .calc-tab-btn {
+        padding: 0.5rem 1rem !important;
+        font-size: 0.85rem !important;
+    }
+}
+
+/* Responsive for Sobre page */
+@media (max-width: 968px) {
+    .hero-sobre-content {
+        grid-template-columns: 1fr !important;
+        gap: 2rem;
+    }
+    
+    .hero-stats-sobre {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    .mission-grid,
+    .features-grid-sobre,
+    .team-stats-grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .security-content {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .security-badges-sobre {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    .timeline-wrapper::before {
+        left: 20px;
+    }
+    
+    .timeline-item {
+        width: calc(100% - 60px) !important;
+        left: 60px !important;
+    }
+    
+    .timeline-item.left::before,
+    .timeline-item.right::before {
+        left: -40px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-sobre {
+        padding: 80px 0 40px !important;
+    }
+    
+    .hero-text-sobre h1 {
+        font-size: 2rem !important;
+    }
+    
+    .hero-stats-sobre {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .hero-chart-sobre,
+    .security-chart {
+        height: 250px !important;
+    }
+    
+    .mission-card,
+    .feature-card-sobre,
+    .team-stat-card {
+        padding: 1.5rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-sobre {
+        padding: 60px 0 30px !important;
+    }
+    
+    .hero-text-sobre h1 {
+        font-size: 1.5rem !important;
+    }
+    
+    .hero-subtitle-sobre {
+        font-size: 1rem !important;
+    }
+    
+    .stat-value-sobre {
+        font-size: 1.5rem !important;
+    }
+    
+    .hero-chart-sobre,
+    .security-chart {
+        height: 200px !important;
+        padding: 0.5rem !important;
+    }
+    
+    .security-badges-sobre {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .timeline-item {
+        width: calc(100% - 40px) !important;
+        left: 40px !important;
+        padding: 1rem !important;
+    }
+}
+
+/* Responsive for Pagamento page */
+@media (max-width: 968px) {
+    .payment-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+    
+    .payment-section {
+        padding: 60px 0 !important;
+    }
+    
+    .payment-badges {
+        gap: 10px !important;
+    }
+    
+    .payment-badges > div {
+        font-size: 0.8rem !important;
+        padding: 6px 12px !important;
+    }
+    
+    .payment-badges span {
+        font-size: 1rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .payment-section {
+        padding: 40px 0 !important;
+    }
+    
+    .section-title h2 {
+        font-size: 1.8rem !important;
+    }
+    
+    .section-title p {
+        font-size: 0.9rem !important;
+    }
+    
+    #resumo-pedido {
+        padding: 15px !important;
+    }
+    
+    #resumo-pedido strong {
+        font-size: 18px !important;
+    }
+    
+    #resumo-total {
+        font-size: 20px !important;
+    }
+    
+    .form-container {
+        padding: 1.5rem !important;
+    }
+    
+    .form-title {
+        font-size: 1.3rem !important;
+    }
+    
+    .auth-buttons {
+        flex-direction: column !important;
+        gap: 5px !important;
+    }
+    
+    .auth-buttons > div {
+        font-size: 0.75rem !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+    }
+    
+    .auth-buttons span {
+        font-size: 0.7rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .payment-section {
+        padding: 30px 0 !important;
+    }
+    
+    .section-title h2 {
+        font-size: 1.5rem !important;
+    }
+    
+    .payment-badges {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 8px !important;
+    }
+    
+    .payment-badges > div {
+        width: 100% !important;
+        max-width: 280px !important;
+        justify-content: center !important;
+    }
+    
+    .payment-grid {
+        gap: 1.5rem !important;
+    }
+    
+    #resumo-pedido {
+        padding: 12px !important;
+    }
+    
+    #resumo-pedido div {
+        font-size: 0.9rem !important;
+        margin-bottom: 10px !important;
+    }
+    
+    #resumo-valor {
+        font-size: 16px !important;
+    }
+    
+    #resumo-total {
+        font-size: 18px !important;
+    }
+    
+    .form-container {
+        padding: 1rem !important;
+    }
+    
+    .form-group {
+        margin-bottom: 1rem !important;
+    }
+    
+    .form-control {
+        padding: 0.6rem !important;
+        font-size: 0.9rem !important;
+    }
+    
+    .btn {
+        padding: 0.75rem !important;
+        font-size: 0.9rem !important;
+    }
+    
+    .security-badge {
+        position: static !important;
+        margin-bottom: 15px !important;
+        display: inline-block !important;
+        width: auto !important;
+    }
+    
+    .security-badges {
+        flex-direction: column !important;
+        gap: 10px !important;
+        margin-top: 20px !important;
+    }
+    
+    .security-badges .badge {
+        width: 100% !important;
+        max-width: 200px !important;
+    }
+    
+    /* Ajustes adicionais para mobile */
+    .payment-section .section-title h2 {
+        font-size: 1.3rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    .payment-section .section-title p {
+        font-size: 0.85rem !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .form-title {
+        font-size: 1.2rem !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    #resumo-pedido hr {
+        margin: 15px 0 !important;
+    }
+}
