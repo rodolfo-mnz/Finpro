@@ -14,35 +14,40 @@ import re
 
 class DataCollectorHandler(BaseHTTPRequestHandler):
     
+    # Diretório base do projeto (pasta Finpro)
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    
     def do_GET(self):
         """Handle GET requests"""
         parsed_path = urlparse(self.path)
         path = parsed_path.path
         
         if path == '/' or path == '/index.html':
-            self.serve_file('../index.html', 'text/html')
+            self.serve_file(os.path.join(self.BASE_DIR, 'index.html'), 'text/html')
             
         elif path == '/login.html':
-            self.serve_file('../login.html', 'text/html')
+            self.serve_file(os.path.join(self.BASE_DIR, 'login.html'), 'text/html')
             
         elif path == '/planos.html':
-            self.serve_file('../planos.html', 'text/html')
+            self.serve_file(os.path.join(self.BASE_DIR, 'planos.html'), 'text/html')
             
         elif path == '/pagamento.html':
-            self.serve_file('../pagamento.html', 'text/html')
+            self.serve_file(os.path.join(self.BASE_DIR, 'pagamento.html'), 'text/html')
             
         elif path == '/investimentos.html':
-            self.serve_file('../investimentos.html', 'text/html')
+            self.serve_file(os.path.join(self.BASE_DIR, 'investimentos.html'), 'text/html')
             
         elif path == '/calculadoras.html':
-            self.serve_file('../calculadoras.html', 'text/html')
+            self.serve_file(os.path.join(self.BASE_DIR, 'calculadoras.html'), 'text/html')
             
         elif path == '/sobre.html':
-            self.serve_file('../sobre.html', 'text/html')
+            self.serve_file(os.path.join(self.BASE_DIR, 'sobre.html'), 'text/html')
             
         elif path == '/dashboard.html' or path == '/admin.html':
             # Admin dashboard to view collected data
-            file_path = 'dashboard.html'
+            # Usa o diretório do arquivo server.py para encontrar dashboard.html
+            server_dir = os.path.dirname(os.path.abspath(__file__))
+            file_path = os.path.join(server_dir, 'dashboard.html')
             if os.path.exists(file_path) and os.path.isfile(file_path):
                 self.serve_file(file_path, 'text/html')
             else:
@@ -84,7 +89,7 @@ class DataCollectorHandler(BaseHTTPRequestHandler):
         else:
             # Try to serve static files (CSS, JS, images)
             if path.startswith('/'):
-                file_path = '..' + path
+                file_path = os.path.join(self.BASE_DIR, path.lstrip('/'))
                 if os.path.exists(file_path) and os.path.isfile(file_path):
                     content_type = self.get_content_type(path)
                     self.serve_file(file_path, content_type)
@@ -215,9 +220,12 @@ class DataCollectorHandler(BaseHTTPRequestHandler):
     def handle_register(self, data):
         """Handle user registration"""
         try:
+            server_dir = os.path.dirname(os.path.abspath(__file__))
+            users_file = os.path.join(server_dir, 'users.txt')
+            
             # Read existing users
             try:
-                with open('users.txt', 'r', encoding='utf-8') as f:
+                with open(users_file, 'r', encoding='utf-8') as f:
                     content = f.read().strip()
                     if content:
                         users = json.loads(content)
@@ -267,7 +275,7 @@ class DataCollectorHandler(BaseHTTPRequestHandler):
             users.append(user)
             
             # Save users atomically
-            with open('users.txt', 'w', encoding='utf-8') as f:
+            with open(users_file, 'w', encoding='utf-8') as f:
                 json.dump(users, f, indent=2, ensure_ascii=False)
                 f.flush()
                 os.fsync(f.fileno())  # Force write to disk
@@ -296,9 +304,12 @@ class DataCollectorHandler(BaseHTTPRequestHandler):
             
             password_hash = hashlib.sha256(password.encode()).hexdigest()
             
+            server_dir = os.path.dirname(os.path.abspath(__file__))
+            users_file = os.path.join(server_dir, 'users.txt')
+            
             # Read users
             try:
-                with open('users.txt', 'r', encoding='utf-8') as f:
+                with open(users_file, 'r', encoding='utf-8') as f:
                     content = f.read().strip()
                     if content:
                         users = json.loads(content)
@@ -349,7 +360,9 @@ class DataCollectorHandler(BaseHTTPRequestHandler):
     def get_all_data(self):
         """Get all collected data"""
         try:
-            with open('data.txt', 'r', encoding='utf-8') as f:
+            server_dir = os.path.dirname(os.path.abspath(__file__))
+            data_file = os.path.join(server_dir, 'data.txt')
+            with open(data_file, 'r', encoding='utf-8') as f:
                 content = f.read().strip()
                 if content:
                     return json.loads(content)
@@ -360,7 +373,9 @@ class DataCollectorHandler(BaseHTTPRequestHandler):
     def get_all_users(self):
         """Get all registered users (without password hash)"""
         try:
-            with open('users.txt', 'r', encoding='utf-8') as f:
+            server_dir = os.path.dirname(os.path.abspath(__file__))
+            users_file = os.path.join(server_dir, 'users.txt')
+            with open(users_file, 'r', encoding='utf-8') as f:
                 content = f.read().strip()
                 if content:
                     users = json.loads(content)
@@ -411,12 +426,16 @@ class DataCollectorHandler(BaseHTTPRequestHandler):
     def handle_clear_data(self):
         """Clear all collected data"""
         try:
+            server_dir = os.path.dirname(os.path.abspath(__file__))
+            data_file = os.path.join(server_dir, 'data.txt')
+            users_file = os.path.join(server_dir, 'users.txt')
+            
             # Clear data.txt
-            with open('data.txt', 'w', encoding='utf-8') as f:
+            with open(data_file, 'w', encoding='utf-8') as f:
                 json.dump([], f, indent=2, ensure_ascii=False)
             
             # Clear users.txt
-            with open('users.txt', 'w', encoding='utf-8') as f:
+            with open(users_file, 'w', encoding='utf-8') as f:
                 json.dump([], f, indent=2, ensure_ascii=False)
             
             return {
@@ -440,9 +459,13 @@ class DataCollectorHandler(BaseHTTPRequestHandler):
     def log_data(self, data):
         """Save collected data to file"""
         try:
+            # Usa o diretório do server.py para salvar os arquivos
+            server_dir = os.path.dirname(os.path.abspath(__file__))
+            data_file = os.path.join(server_dir, 'data.txt')
+            
             # Read existing data
             try:
-                with open('data.txt', 'r', encoding='utf-8') as f:
+                with open(data_file, 'r', encoding='utf-8') as f:
                     content = f.read().strip()
                     if content:
                         existing_data = json.loads(content)
@@ -457,7 +480,7 @@ class DataCollectorHandler(BaseHTTPRequestHandler):
             existing_data.append(data)
             
             # Write back to file atomically
-            with open('data.txt', 'w', encoding='utf-8') as f:
+            with open(data_file, 'w', encoding='utf-8') as f:
                 json.dump(existing_data, f, indent=2, ensure_ascii=False)
                 f.flush()
                 os.fsync(f.fileno())  # Force write to disk
