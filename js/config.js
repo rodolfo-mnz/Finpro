@@ -4,7 +4,7 @@
 // Exemplo: 'https://seu-backend.onrender.com'
 
 // ⚠️ IMPORTANTE: Substitua pela URL do seu serviço Render após fazer o deploy
-const RENDER_API_URL = 'https://seu-backend.onrender.com'; // 👈 ALTERE AQUI
+const RENDER_API_URL = 'https://finpro-backend.onrender.com'; // 👈 ALTERE AQUI
 
 const API_CONFIG = {
     // URL base da API - será detectada automaticamente ou use a URL do Render
