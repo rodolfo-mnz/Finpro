@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: finpro-backend
+    env: python
+    buildCommand: ""
+    startCommand: python server/server.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+    healthCheckPath: /api/stats
+
